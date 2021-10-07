@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box; /*default: content-box */
+}
+
+p {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+p input {
+    font-size: 1em;
+}
+
+#tablazat {
+    /*width: 80%;*/
+    margin: auto;
+    border-collapse: collapse;
+}
+
+#tablazat th {
+    text-align: center;
+    font-weight: bold;
+}
+
+#tablazat > thead > tr {
+    background-color: lightgreen;
+}
+
+#tablazat > tbody > tr:nth-child(even) {
+    background-color: lightgrey;
+}
+
+#tablazat td, #tablazat th {
+    border: 1px solid #222;
+    padding: 0.5em;
+}
+
+#tablazat > tbody > tr > td:nth-child(2) {
+    text-align: center;
+}

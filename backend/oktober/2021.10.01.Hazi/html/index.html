@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <title>Felhasználókezelés</title>
+    <meta charset="UTF-8" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/a0f4d104c5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    -->
+</head>
+
+<body>
+    <form method="POST" action="index.php" class="form-wrapper">
+        Név:<br />
+        <input type="text" name="vNev">
+        <input type="text" name="kNev">
+        Cím:<br />
+        Város: <input type="text" name="cim_varos">
+        Irányítószám: <input type="text" name="iranyitoSzam">
+        Utca: <input type="text" name="cim_utca">
+        Házszám: <input type="text" name="cim_szam">
+        Telefonszám:
+        <input type="tel" name="telSzam">
+        email:<br />
+        <input type="email" name="email">
+        <button id="cancel">Cancel</button>
+        <button id="update">Update</button>
+        <input type="submit" name="action"  value="add">
+    </form>
+
+
+
+
+
+    <table id="listaTable">
+        <thead>
+            <tr>
+                <th>Azonosító</th>
+                <th>Vezetéknév</th>
+                <th>Keresztnév</th>
+                <th>Cím</th>
+                <th>Telefonszám</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

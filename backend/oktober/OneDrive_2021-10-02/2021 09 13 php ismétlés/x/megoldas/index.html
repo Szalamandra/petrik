@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Felhasználókezelés</title>
+	<meta charset="UTF-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	
+		$.ajax({
+			url: "select/",
+			type: 'GET',
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			async: false,
+			success: function(res) {
+				if (res.success==1){
+					var sorok = "";
+						for(var i=0; i<res.allblogs.length; i++ ){
+							sorok += "<tr id='d"+res.allblogs[i].blog_id+"'>";
+							sorok += "<td id='title_"+res.allblogs[i].blog_id+"'>" + res.allblogs[i].blog_title + "</td>";
+							sorok += "<td id='content_"+res.allblogs[i].blog_id+"'>" + res.allblogs[i].blog_content + "</td>";
+							sorok += "<td>" + res.allblogs[i].blog_author + "</td>";
+							sorok += "<td id='createdate_"+res.allblogs[i].blog_id+"'>" + res.allblogs[i].blog_createdate + "</td>";
+							sorok += "<td class='delete' data-id='"+res.allblogs[i].blog_id+"'>törlés</td>";
+							sorok += "<td class='update_form' data-id='"+res.allblogs[i].blog_id+"'>módosítás</td>";
+							sorok += "</tr>";
+						}
+					$("table").append(sorok);
+				}
+				if (res.success==0){
+					// ...
+				}					
+			}
+		});			
+		
+		$(document).on('click','.update_form',function(){
+			var id = $(this).data('id');			
+			var title = $(`#title_${id}`).text();
+			var content = $(`#content_${id}`).text();
+			var createdate = $(`#createdate_${id}`).text();
+			$("#input_title").val(title);
+			$("#input_content").val(content);	
+			$("#input_create_date").val(createdate);	
+			$("#id").val(id);	
+			$("#insert").css("display","none");
+			$("#update").css("display","block");
+		});
+		
+		$(document).on('click','#update',function(){
+			var data = { 
+				id:$("#id").val(),
+				blog_title:$("#input_title").val(), 
+				blog_content:$("#input_content").val(),
+				blog_author:$("#input_author").val(),
+				blog_createdate:$("#input_create_date").val()
+			};		
+			$.ajax({
+				url: "update/",
+				type: 'POST',
+				data: JSON.stringify(data),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(res) {
+					var id = $("#id").val();
+					$(`#title_${id}`).text($("#input_title").val());
+					$(`#content_${id}`).text($("#input_content").val());				
+					$("#input_title").val("");
+					$("#input_content").val("");						 
+					//$("#input_author").val("");						 
+					$("#input_create_date").val("");	
+					$("#insert").css("display","block");
+					$("#update").css("display","none");					
+				}
+			});				
+		});	
+		
+		$(document).on('click','.delete',function(){
+			var id = $(this).data('id');
+			var data = { id:id };		
+			$.ajax({
+				url: "delete/",
+				type: 'POST',
+				data: JSON.stringify(data),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(res) {
+					 $(`#d${id}`).empty();
+					 $(`#d${id}`).remove();
+				}
+			});
+		});	
+		
+		$(document).on('click','#insert',function(){
+			var data = { 
+				blog_title:$("#input_title").val(), 
+				blog_content:$("#input_content").val(),
+				blog_author:$("#input_author").val(),
+				blog_createdate:$("#input_create_date").val()
+			};		
+			$.ajax({
+				url: "insert/",
+				type: 'POST',
+				data: JSON.stringify(data),
+				contentType: 'application/json; charset=utf-8',
+				dataType: 'json',
+				async: false,
+				success: function(res) {
+					// lista mintájára ki kell egészíteni, hogy működjön!!!
+					 $("table > tbody:last-child").append("<tr id='d"+res.id+"'><td>"+
+							$("#input_title").val()+"</td><td>"+
+							$("#input_content").val()+"</td><td>"+
+							$("#input_author").val()+"</td><td>"+
+							$("#input_create_date").val()+
+							"</td><td class='delete' data-id='"+res.id+
+							"'>törlés</td><td class='update_form' data-id='"+res.id+"'>módosítás</td></tr>");
+					 $("#input_title").val("");
+					 $("#input_content").val("");						 
+					 //$("#input_author").val("");						 
+					 $("#input_create_date").val("");						 
+				}
+			});				
+		});	
+		
+	});
+	</script>
+</head>
+<body>
+	<p>Lista</p>
+
+		Adatok felvétele:<br />
+		Title: <input type="text" id="input_title" /><br />
+		Content: <textarea id="input_content"></textarea><br />
+		Author: <input type="text" id="input_author" value="admin" readonly /><br />
+		Create date: <input type="date" id="input_create_date" /><br />
+		<input type="hidden" id="id" />
+		<button id="insert">Insert</button>	
+		<button id="update" style="display: none;">Update</button>	
+		
+			<table>
+				<thead>
+					<tr>
+						<th>Title:</th>
+						<th>Content:</th>
+						<th>Author:</th>
+						<th>Create date:</th>
+						<th>Actions:</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		
+</body>
+</html>

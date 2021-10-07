@@ -1,0 +1,1 @@
+CREATE TABLE `petdatas`.`owners` ( `id` INT NOT NULL AUTO_INCREMENT , `vNev` VARCHAR(30) NOT NULL , `kNev` VARCHAR(30) NOT NULL , `telSzam` INT(30) NOT NULL , `email` VARCHAR(30) NOT NULL , `cim_varos` VARCHAR(20) NOT NULL , `iranyitoSzam` VARCHAR(10) NOT NULL , `cim_utca` VARCHAR(30) NOT NULL , `cim_szam` VARCHAR(10) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

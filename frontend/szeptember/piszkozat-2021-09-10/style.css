@@ -1,0 +1,55 @@
+
+body > p.error b {
+
+}
+
+p.error {
+    background-color: brown;
+}
+
+#nev {
+    background-color: hotpink;
+}
+
+p, div {
+    font-weight: bold;
+    font-size: 50px;
+    background-color: grey;
+}
+
+
+
+h1.error {
+    background-color: green;
+}
+
+nav > ol > li {
+    list-style-type: none;
+    float: left;
+    /* margin-right: 10px; */
+
+    height: 2em;
+    width: calc(33% - 10px);
+}
+
+p:first-child {
+    font-style: italic;
+}
+
+article::before {
+    content: 'Elotte';
+    text-decoration: underline;
+}
+
+article::after {
+    content: "♥";
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-color: yellow;
+    }
+}
+
+
+

@@ -1,0 +1,42 @@
+Készíts weboldalt az alábbi leírás alapján.
+
+A bemeneti adathalmaz legyen az alábbi (vegyük fel JS konstansként).
+
+const adathalmaz = [
+    "Die Hard 4",
+    "Star Wars 9   ",
+    "Lord of the Rings 3",
+    "Lord of the flies",
+	"Lego Movie",
+	"Spirited Away",
+	"Batman Begins",
+];
+
+Az oldal álljon:
+	Egy szövegmezőből, keresés cimkével
+	
+	Alatta egy üres táblázat, amelynek a fejléce:
+	
+	Cím | Műveletek
+	    <üres>
+	
+	Szöveg változására ("input" esemény) töltse be a globálisan megadott tömb elemeit,
+	szűrjön rá a szövegmező tartalmára, rendezze ABC sorrendbe, és töltse be a táblázatba.
+	 * Csak ha min. 3 karakter
+	 * A Cím oszlopba kerüljön a film címe
+	 * A Műveletek oszlopba kerüljön egy "Törlés" felíratú gomb. Ha erre kattintunk, akkor törölje a filmet az adathalmazból.
+	   (mivel nem mentjük a változásokat, ezért F5-re természetesen minden változtatás elveszik)
+	
+Megjelenés:
+	Alkalmazzuk minden elemre a "box-sizing: border-box;" stílust.
+	
+	A táblázat legyen az oldal szélességének 80%-a, középre igazított.
+	A táblázatnak 1px, sötétszürke kerete legyen.
+	A táblázat sorai legyenek felváltva fehér / halvány szürke színűek.
+	A fejléc legyen félkövér, a szöveg középre igazított, eltérő háttérszínű.
+
+	Kereséskor, teljes egyezés esetén legyen a szöveg félkövér.
+	
+	A térköz, megjelenés legyen elegáns.
+	
+	
