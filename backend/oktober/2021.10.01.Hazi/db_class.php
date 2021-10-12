@@ -12,6 +12,15 @@ class adatbazis
     public $row = "";
     public $conn;
     public $rows = [];
+    public $vNev= "";
+  public $kNev="";
+  public $telSzam="";
+  public $email="";
+  public $cim_varos="";
+  public $iranyitoSzam="";
+  public $cim_utca="";
+  public $cim_szam="";
+  public $id="";
 
   
 	public function json_ownerlist()

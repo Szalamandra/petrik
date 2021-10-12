@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-    <form method="POST" action="index.php" class="form-wrapper">
+    <form method="POST" class="form-wrapper">
         Név:<br />
         <input type="text" name="vNev">
         <input type="text" name="kNev">
@@ -27,9 +28,9 @@
         <input type="tel" name="telSzam">
         email:<br />
         <input type="email" name="email">
-        <button id="cancel">Cancel</button>
-        <button id="update">Update</button>
-        <input type="submit" name="action"  value="add">
+        <button id="cancel" name="cancel">Cancel</button>
+        <button id="update" name="update" action="../index.php">Update</button>
+        <button type="submit" name="add" action="../index.php" >Add</button>
     </form>
 
 

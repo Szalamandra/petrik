@@ -30,6 +30,9 @@ table {
 	text-align: left;
 	width: 800px;
 }	
+.rejtett{
+	display:none;
+}
 
 th {
 	background:  linear-gradient(#777, #444);

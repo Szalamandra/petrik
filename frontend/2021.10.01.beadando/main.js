@@ -1,7 +1,7 @@
 
-let adatTabla = document.getElementById("adatTabla");
 
-let data = {};
+
+let data = [];
 let fetchOptions = {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
@@ -16,7 +16,7 @@ let fetchOptions = {
     //body: JSON.stringify(data)  ha felküldök adatot (POST)
 };
 
-function adatLeker(url, msg = "", data = {}, fetchOptions) {
+function adatLeker(url, msg = "", data = [], fetchOptions) {
     let response = fetch(url, fetchOptions);
    
     response.then((data) => {
@@ -32,24 +32,49 @@ function adatLeker(url, msg = "", data = {}, fetchOptions) {
                 return Promise.reject(
                     new Error("A szerver " + data.status + " hibát adott")
                 );
-            }
-    })
+        }
+        //ha megjött a json
+    }).then(data => {
+        //data = JSON.stringify(data);
+        
+        data.sort((a, b) => {
+         a.year - b.year;
+        }).forEach(element => {
+            /*let td;
+            let tBody = adatTabla.querySelector("tbody");
+            td = document.createElement(td);
+            td.innerHTML = element.title;*/
+            //if (element.active) {
+                adatTabla.querySelector("tbody").innerHTML += "<td class='filmCim'>" + element.title + "</td>"+"<td>(" + element.year + ")</td>";
+            /*else {
+                adatTabla.querySelector("tbody") +=
+                    "<div class='inactive'>" + element.title + "</div>";
+            }*/
+        });
+    })  //masodik then vége
     .catch(e => {
-        console.log(e);
+        
         document.getElementById("hibaUzi").innerHTML = e.message;
         
     }).finally((msg) => {
-        console.log(msg);
+        //console.log(msg);
     });
 
     
 }//!function adatleker
 
+function rendezes(data){      
+    data.sort((a, b) => {
+        a.year - b.year;
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     let msg = "Minden jól ment, hurrey!";
-    let adatok = {};
     
-    adatok = adatLeker('./movies.json',msg,data, fetchOptions);
+    let adatTabla = document.getElementById("adatTabla");
+    let adatok = adatLeker("movies.json",msg,data, fetchOptions);
     console.log(adatok);
     
     
