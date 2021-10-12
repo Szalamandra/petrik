@@ -15,6 +15,18 @@ let fetchOptions = {
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     //body: JSON.stringify(data)  ha felküldök adatot (POST)
 };
+function createCellaTablazatba(tablaSelector, elementTipus, element2, tartalom ) {
+    let tabla = adatTabla.querySelector(tablaSelector);
+    let sorNev = document.createElement(elementTipus);
+    let cellaNev = document.createElement(element2);
+    cellaNev.innerHTML = tartalom;
+    sorNev.appendChild(cellaNev);
+    tabla.appendChild(sorNev);
+    sorNev.className = "filmCim";
+    return sorNev;
+
+}
+
 
 function adatLeker(url, msg = "", data = [], fetchOptions) {
     let response = fetch(url, fetchOptions);
@@ -40,13 +52,27 @@ function adatLeker(url, msg = "", data = [], fetchOptions) {
         data.sort((a, b) => {
          a.year - b.year;
         }).forEach(element => {
-            /*let td;
-            let tBody = adatTabla.querySelector("tbody");
-            td = document.createElement(td);
-            td.innerHTML = element.title;*/
-            //if (element.active) {
+            
+            let ujSor=createCellaTablazatba("tBody", "tr", "td", element.title);
+            let ujTd = document.createElement("td");
+            ujTd.innerHTML = element.year;
+            ujSor.appendChild(ujTd);
+            //createCellaTablazatba("tbody", "tr", "td", element.year);
+            
+            
+            /*let tBody = adatTabla.querySelector("tbody");
+            let tr1 = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2= document.createElement("td");
+            td1.className = "filmCim";
+            td1.innerHTML = element.title;
+            td2.className = "filmCim";
+            td2.innerHTML = element.title;
+            tr1.appendChild(td1);
+            tBody.appendChild(tr1);*/
+            /*if (element.active) {
                 adatTabla.querySelector("tbody").innerHTML += "<td class='filmCim'>" + element.title + "</td>"+"<td>(" + element.year + ")</td>";
-            /*else {
+            else {
                 adatTabla.querySelector("tbody") +=
                     "<div class='inactive'>" + element.title + "</div>";
             }*/
