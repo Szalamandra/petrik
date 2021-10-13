@@ -29,9 +29,21 @@ table {
 	margin: 30px auto;
 	text-align: left;
 	width: 800px;
+}
+tr:hover{
+	opacity:0.7;
+	cursor:pointer;
+}
+thead>tr:hover{
+	cursor:auto;
+	opacity:1;
 }	
 .rejtett{
-	display:none;
+	visibility: hidden;
+}
+.mutasd{
+	visibility:visible;
+	
 }
 
 th {
