@@ -41,7 +41,8 @@ function eloHoz(selector) {
 }
 function anchorCsomagol(mit, hova) {
      let anchor = document.createElement("a");
-                anchor.setAttribute("href", "bogyo");
+    anchor.setAttribute("href", "bogyo");
+    anchor.setAttribute("onclick", "return false");
                 anchor.appendChild(mit);
                 hova.appendChild(anchor);
 }
@@ -78,8 +79,7 @@ function adatLeker(url, msg ="", data = [], fetchOptions) {
             //data.push(element);
             let mufajTd = ujCella(ujSor, element.genres, "mufaj rejtett");
             let szereploTd=ujCella(ujSor, element.cast, "szereplo rejtett");
-            ujSor.addEventListener("click", (target) => {
-                
+            ujSor.addEventListener("click", (target) => {                
                 let tablaFej = document.querySelector("thead>tr");
                 let szereplok = document.querySelector("#szereplok");
                 let mufajok = document.querySelector("#mufajok");
@@ -88,11 +88,32 @@ function adatLeker(url, msg ="", data = [], fetchOptions) {
                 anchorCsomagol(mufajok, tablaFej);
                 anchorCsomagol(szereplok, tablaFej);
                 
+                /*ezek nem működtek:
+                szereplok.addEventListener("click", (e) => {
+                    e.preventDefault();
 
+                });
+                szereplok.onclick = function (e) {
+                    e.preventDefault;
+                            };*/
+                
+                //szűrések
+                szereplok.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    console.log("szereplok:"+element.cast);
+                    if (element.cast > 0) {
+                        data.filter(e => e.length > 0);
+                        console.log(data);
+                    }
+                  
+
+                });
+
+
+                //megjelenítések
                 if (szereplok.classList.contains("rejtett")) {
                     szereplok.classList.remove("rejtett");
-                    
-                      mufajok.classList.remove("rejtett");
+                  mufajok.classList.remove("rejtett");
                 }
                 ujSor.children[2].classList.toggle("mutasd");
                 ujSor.children[3].classList.toggle("mutasd");
@@ -140,25 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //nem értem, hogy a 65. sorban, ha return-om az adatokat, miért nem amaradnak meg?
     console.log(adatok);
 
-    
-    
-    
-    
-        /*document.getElementById("kereses").addEventListener("input", (e) => {
-            // e.target: a HTML elem, amelyen az esemény keletkezett
-            // .value: az input element értéke
-            const szoveg = e.target.value;
-            if (szoveg.length >= 3) {
-                // Min 3 szöveg esetén keressünk
-                szures(szoveg);
-            } else if (szoveg === "") {
-                // Üres szöveg esetén jelenítsük meg a teljes táblázatot
-                // (ami megegyezik azzal, hogy az üres stringre szűrűnk)
-                szures("");
-            }
-        });  //input, getelementbyid*/
-      
-    
 });  //!domcontentload
 
 

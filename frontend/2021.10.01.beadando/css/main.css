@@ -19,7 +19,14 @@ main{
 	grid-template-rows: 1fr 1fr 10fr;
 }
 
-
+a{
+	text-decoration: none;
+	display:contents;
+}
+th{
+	width:auto;
+	vertical-align: auto;
+}
 table {
 	background: #f5f5f5;
 	border-collapse: separate;
