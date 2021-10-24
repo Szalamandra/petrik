@@ -1,0 +1,72 @@
+a {
+	color: $color__link;
+	font-size: $font__size_medium;
+	&:visited {
+		color: $color__link-visited;
+		text-decoration: none;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+#tovabbLink{
+	text-transform:capitalize;
+	font-weight: 500;
+	font-family: "Playfair Display";
+	margin:0;
+	padding:1.5rem;
+	border-radius: 8px;
+	font-size: calc($font__size_medium - 0.5em);
+	text-align: left;
+	:hover{
+		color:bisque;	
+	}
+	@include mobile{
+		position: relative;
+    	top: 0;
+		color:$color__background-footer;
+		:hover{
+			color:$color__banner_bg;
+		}
+	}
+
+}
+
+#formazatlanLink{
+	position:absolute;
+	color:inherit;
+	font-family: "Playfair Display";
+	text-transform: capitalize;
+	    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.gitHubLink{
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-visited;
+	}
+}
+.gitHubLink:hover{
+	border-radius:10px;
+	color:lighten($color__text-input-focus,40%);
+	background-color:lighten($color__link-visited,41%);
+	opacity: 0.6;
+	transition: all 500ms ease-in;
+
+}

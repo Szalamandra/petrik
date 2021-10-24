@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href='style.css' type='text/css' rel='stylesheet'>
+
+</head>
+<body>
+<form class='sikidom' name='teglalap'>
+
+
+	<h4> A téglalap </h4>
+
+	<b>Kiindulási adatok:</b><br>
+
+
+	<span><i><b>'a'</b></i> oldal hossza: </span> <input name='a' size=5> cm <br>
+	<span><i><b>'b'</b></i> oldal hossza: </span> <input name='b' size=5> cm <br>
+
+	<span> </span>                                
+	
+	<input type=button value='Számol' onclick=' szamol(); '>
+
+	<hr>
+
+	<b>Eredmények:</b><br>
+
+	<span>Kerület: </span>                        <input name='K' size=5 readonly> cm <br>
+	<span>Terület: </span>                        <input name='T' size=5 readonly> cm<sup>2</sup>
+
+</form>
+
+
+<!-- -- --  JavaScript függvény megvalósítása  -- -- -->
+
+
+
+<script>
+
+    function szamol(){
+
+	a = parseFloat(document.teglalap.a.value)
+	b = parseFloat(document.teglalap.b.value)
+	
+	if(a == 0 || b == 0){
+	K = 'TRUE'
+	}
+	
+	else{
+	K = 2*(a+b)
+	}
+	
+	if(K < 0){
+	K = 42
+	}
+	
+	if(a == 0 && b == 0){
+	T = '0a+b0'                     
+	}
+	else if(a == 0){
+	T = '0'+b
+	}
+	
+	else if(b == 0){
+	T = ''+a+'0'
+	}
+	
+	else if(a<0){
+	T = Math.abs(a)*b
+	}
+	
+	else {
+	T = a*b
+	}
+
+	document.teglalap.K.value = K
+	document.teglalap.T.value = T
+
+    }
+
+</script>
+
+
+
+<!-- -- -- --  JavaScript függvény vége  -- -- -- -- -->
+
+</body>
+</html>
+
+
+

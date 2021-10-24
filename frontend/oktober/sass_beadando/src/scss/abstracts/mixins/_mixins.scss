@@ -1,0 +1,223 @@
+//mixin van a background nal is
+
+// Center block
+@import "breakpoints";
+
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 2) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+@mixin port-background-image($url,$bgcolor){
+	background-color:$bgcolor;
+  background-image: $url;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+@mixin port-background-image-parralax($url,$bgcolor){
+	background-color:$bgcolor;
+    background-image: $url;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: local;
+
+}
+
+@mixin port-set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+//apply to the child
+@mixin scrollBarHide(){
+  margin-right: -50px; /* Maximum width of scrollbar */
+  padding-right: 50px; /* push the content back*/
+  overflow-y: auto;
+}
+
+
+@mixin gridCol($gridpixel, $itemDb, $gap) {
+  display: grid;
+  grid-template-columns: repeat(
+    $itemDb minmax($gridpixel, 1fr)
+  );
+  grid-gap: $gap;
+}
+
+@mixin gridRow($gridpixel, $itemDb, $gap) {
+  display: grid;
+  grid-template-rows: repeat(
+    $itemDb minmax($gridpixel, 1fr)
+  );
+  grid-gap: $gap;
+}
+//the color of the text on hover
+@mixin port-hover($cuccSzin){
+  &:hover {
+    background-color: lighten($cuccSzin, 10%);
+    opacity:0.95;
+    border-radius:50%;
+    padding:0.3rem 1.5rem;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      transform: all 1000s ease in;
+  }
+  &:active {
+    background-color: lighten($cuccSzin, 30%);
+    box-shadow: 0 5px #666;
+  }
+}
+
+//media queriesek  and (max-width: #{$desktop})
+@mixin tablet {
+  @media screen and (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin tabletDetailRolamPage {
+  @media screen and (max-width: #{$tabletDetailRolamPage}) {
+    @content;
+  }
+}
+@mixin mobileDetailRolamPage {
+  @media screen and (max-width: #{$mobileDetailRolamPage}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin desktopDetailRolamPage {
+  @media screen and (max-width: #{$desktopDetailRolamPage}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media screen and (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+
+@mixin absolute_layout($width:100%,$height:100%,$value:0){
+  	position: absolute;
+	width:$width;
+	height:$height;
+	top:$value;
+	right:$value;
+	left:$value;
+	bottom:$value;
+}
+
+@mixin overlay_bg_dark{
+    background-color:rgba(0,0,0,0.7);
+    color:$color_text-main_light;
+
+  }
+@mixin overlay_bg_white{
+    background-color:rgba(250,250,250,0.7);
+    color:$color__text-main;
+  }
+
+@mixin overlay_bottom_white{
+  background: rgb(149,149,149);
+background: linear-gradient(0deg, $color__background-body 3%, rgba(255,255,255,0) 96%);
+}
+@mixin overlay_bottom_dark{
+  background: rgb(149,149,149);
+background: linear-gradient(0deg, $color__background-footer 3%, rgba(0,0,0,0) 96%);
+}
+
+
+
+
+
+
+//borders for images
+$b: 1.5em; // border-width
+$blur: blur(9px);
+$rect: inset(0);
+
+
+@mixin blurBorder($b:0.5rem, $blur:blur(5px), $rect:inset(0)){
+	display: grid;
+	place-content: center;
+	position: relative;
+	border: solid $b rgba(#000, .03);
+	padding: 0 1em;
+	height: 50vmin;
+	max-width: 13em; max-height: 7em;
+	box-shadow: 2px 2px 5px rgba(#000, .2), 
+							2px 2px 17px rgba(#000, .35), 
+							2px 2px 25px rgba(#000, .5);
+	background: $color_transparent cover 
+								border-box /* background-origin */
+								padding-box /* background-clip */;
+	color: #fff;
+	font: 600 3em/ 1.25 segoe script, comic sans ms, cursive;
+	text-align: center;
+	text-shadow: 1px 1px #000;
+	
+	&:before {
+		position: absolute;
+		z-index: -1; /* put it *behind* parent */
+		/* go outside padding-box by 
+		 * a border-width ($b) in every direction */
+		top: -$b; right: -$b; bottom: -$b; left: -$b;
+		border: inherit;
+		border-color: transparent;
+		background: inherit;
+		background-clip: border-box;
+						filter: $blur;
+						clip-path: $rect;
+		content: ''
+	}
+}
+@mixin blurBorderWithBg($b:1rem, $blur:blur(5px), $rect:inset(0), $url:$placeholder){
+	display: grid;
+	place-content: center;
+	position: relative;
+	border: solid $b rgba(#000, .03);
+	padding: 0 1em;
+	height: 50vmin;
+	max-width: 13em; max-height: 7em;
+	box-shadow: 2px 2px 5px rgba(#000, .2), 
+							2px 2px 17px rgba(#000, .35), 
+							2px 2px 25px rgba(#000, .5);
+	background-image:  $url;
+  background-size: cover;
+  background-origin: border-box;
+  background-clip: padding-box;
+	color: #fff;
+	font: 600 3em/ 1.25 segoe script, comic sans ms, cursive;
+	text-align: center;
+	text-shadow: 1px 1px #000;
+	
+	&:before {
+		position: absolute;
+		z-index: -1; /* put it *behind* parent */
+		/* go outside padding-box by 
+		 * a border-width ($b) in every direction */
+		top: -$b; right: -$b; bottom: -$b; left: -$b;
+		border: inherit;
+		border-color: transparent;
+		background: inherit;
+		background-clip: border-box;
+						filter: $blur;
+						clip-path: $rect;
+		content: ''
+	}
+}

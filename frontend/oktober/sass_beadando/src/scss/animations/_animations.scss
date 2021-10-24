@@ -1,0 +1,85 @@
+
+
+
+.imgBorder:hover{
+     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transform: scale(1.1);
+  transition: ease 1.5;
+}
+
+@mixin fadeIn($time){
+animation-name: fadeIn;
+  animation-duration: $time;
+  animation-fill-mode: forwards;
+  
+}
+
+@keyframes fadeIn{
+   0%   {opacity:0;}
+  20%  {opacity:0.2;}
+  20%  {opacity:0.4;}
+  60%  {opacity:0.6;}
+  80%{opacity:0.8;}
+  100% {opacity:1;}
+}
+@mixin fadeOutIn($time){
+animation-name: fadeOutIn;
+  animation-duration: $time;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  
+}
+
+@keyframes fadeOutIn{
+   0%   {opacity:1;}
+  20%  {opacity:0.8;}
+  30% {opacity:0.5;}
+  50%  {opacity:0.3;}
+  60%  {opacity:0;}
+  70% {opacity:0.2;}
+  80%{opacity:0.4;}
+  90%{opacity:0.7;}
+  100% {opacity:1;}
+}
+
+
+@mixin fadeOut($time){
+animation-name: fadeOut;
+  animation-duration: $time;
+  animation-fill-mode: forwards;
+  
+}
+
+@keyframes fadeOut{
+   0%   {opacity:1;}
+  20%  {opacity:0.8;}
+  20%  {opacity:0.6;}
+  60%  {opacity:0.4;}
+  80%{opacity:0.2;}
+  100% {opacity:0;}
+}
+@mixin colorOnHover($color,$colorValt,$time){
+  @keyframes colorOnHover {
+  from{color:$color}
+  to{color:$colorValt}
+    }
+  animation:colorOnHover $time forwards ease-out;
+
+}
+
+.greyScaleOnhover{
+	 padding-left:10%;
+  margin-bottom:0;
+  filter: grayscale(80%);
+  &:hover{   filter:grayscale(0%);
+    transform:scale(1.1);}
+}
+
+
+@keyframes form-spinner {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(359deg); }
+}
+
+
+

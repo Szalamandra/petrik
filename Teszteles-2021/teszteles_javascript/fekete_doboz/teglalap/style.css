@@ -1,0 +1,47 @@
+
+		form.sikidom
+		{
+			width		: 550px            ;
+			margin		: 24px auto        ;
+			padding		: 24px 32px        ;
+			border		: solid 1px #BBF   ;
+			border-radius   : 8px              ;
+			box-shadow	: 2px 2px 2px #88C ;
+			background-color: #EEF             ;
+			line-height	: 32px             ;
+			font-family	: Geneva, Arial    ;
+			color		: #200040          ;
+			font-size	: 14px             ;
+		}
+
+		form.sikidom h4
+		{
+			width		: 120px            ;
+			margin		: 0 auto           ;
+			padding		: 0                ;
+			background-color: #F4F4FF          ;
+			border-radius	: 8px              ;
+			box-shadow	: 1px 1px 1px #88C ;
+			text-align	: center           ;
+			color		: #400080          ;
+			font-size	: 16px             ;
+		}
+
+		form.sikidom input
+		{
+			border		: solid 1px #88C   ;
+			padding         : 2px 8px          ;
+			border-radius	: 4px              ;
+			text-align	: right            ;
+			font-family	: Geneva, Arial    ;
+			color		: #200040          ;
+			font-size	: 14px             ;
+			font-weight	: bold             ;
+		}
+
+		form.sikidom span
+		{
+			display		: inline-block     ;
+			width		: 120px            ;
+			padding-left	:  96px            ;
+		}

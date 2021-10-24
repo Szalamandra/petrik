@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href='style.css' type='text/css' rel='stylesheet'>
+
+</head>
+<body>
+<form class='sikidom' name='haromszog'>
+
+
+	<h4> Korcsoportok </h4>
+
+	<b>Kiindulási adatok:</b><br>
+
+
+	<span><i><b>Életkor</b></i>: </span> <input name='eletkor' size=5> év <br>
+
+	<span> </span>                                
+	
+	<input type=button value='Számol' onclick=' szamol(); '>
+
+	<hr>
+
+	<b>Eredmények:</b><br>
+
+	<span>Korcsoport: </span>                        <input name='korcsoport' size=20 readonly>
+
+	<p id="hiba"></p>
+
+</form>
+
+
+<!-- -- --  JavaScript függvény megvalósítása  -- -- -->
+
+
+
+<script>
+
+    function szamol(){
+	
+		eletkor = parseFloat(document.haromszog.eletkor.value)
+		
+		hiba = document.getElementById("hiba");
+		hiba.innerHTML = "";
+		
+		if (isNaN(eletkor)) {
+			document.haromszog.korcsoport.value = "";
+			hiba.innerHTML = "Nem szám lett megadva";
+			return;
+		}
+		if (eletkor < 0) {
+			document.haromszog.korcsoport.value = "";
+			hiba.innerHTML = "Az életkor nem lehet negatív.";
+			
+		} else if (eletkor <= 2) {
+			document.haromszog.korcsoport.value = "csecsemő";
+		} else if (eletkor <= 12) {
+			document.haromszog.korcsoport.value = "gyermek";
+		} else if (eletkor <= 16) {
+			document.haromszog.korcsoport.value = "serdülő";
+		} else if (eletkor <= 20) {
+			document.haromszog.korcsoport.value = "ifjú";
+		} else if (eletkor <= 60) {
+			document.haromszog.korcsoport.value = "felnőtt";
+		}else if (eletkor <= 75) {
+			document.haromszog.korcsoport.value = "idős";
+		}else{
+			document.haromszog.korcsoport.value = "agg";
+		}
+		
+		
+		
+		
+	}
+</script>
+
+
+
+<!-- -- -- --  JavaScript függvény vége  -- -- -- -- -->
+
+</body>
+</html>
+
+
+

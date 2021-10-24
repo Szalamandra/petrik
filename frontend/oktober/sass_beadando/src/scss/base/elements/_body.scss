@@ -1,0 +1,30 @@
+body {
+	
+	background: $color__background-body; // Fallback for when there is no custom background color defined.
+	font-family: map($fontFamily, "main");
+	font-family: $font__main;
+	@include tablet{
+		text-align: center;}
+	#foCimDiv
+	{font-family: $font_heading;
+	position: absolute;
+    top: 30vh;
+    left: 30%;
+	color:$color__background-screen;
+	left: 50%;
+    transform: translateX(-50%);
+	h1,hr,h2{
+		margin-left: auto;
+		margin-right:auto;
+		text-align: center;
+	}
+	@include mobile{
+		
+    /* z-index: 13; */
+    overflow: visible;
+	}
+
+	}//#focimdiv
+}
+
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href='style.css' type='text/css' rel='stylesheet'>
+
+</head>
+<body>
+
+<form class='sikidom' name='kor'>
+
+	<h4> A kör </h4>
+
+	<b>Adatok:</b><br>
+
+
+	<span>A kör sugara:   </span> <input name='r' size=7 onfocus=' torol(); ' onblur=' korszamol(1); '> cm <br>
+	<span>A kör kerülete: </span> <input name='K' size=7 onfocus=' torol(); ' onblur=' korszamol(3); '> cm <br>
+	<span>A kör területe: </span> <input name='T' size=7 onfocus=' torol(); ' onblur=' korszamol(2); '> cm<sup>2</sup> <br><br>
+
+<!--
+	onfocus : az az esemény, amikor belekattintunk a mezőbe (megkapja a fókuszt)
+	onblur  : az az esemény, amikor kikattintunk a mezőből  (elveszti a fókuszt)
+-->
+
+
+
+
+</form>
+
+
+
+
+<!-- -- --  JavaScript függvény megvalósítása  -- -- -->
+
+
+
+<script>
+
+
+    function  torol()
+    {
+	document.kor.r.value = ""
+	document.kor.K.value = ""
+	document.kor.T.value = ""
+    }
+
+
+    function korszamol(m)
+    {
+
+	r = parseFloat(document.kor.r.value)
+	K = parseFloat(document.kor.K.value)
+	T = parseFloat(document.kor.T.value)
+
+
+	if( m==1 )
+	{
+	
+		if( r==0 ){
+		document.kor.K.value = 'WoW'
+		document.kor.T.value = '-0'
+		}
+		else if (r < 0){
+		document.kor.K.value = K = '-'+2*r*Math.PI
+		document.kor.T.value = Math.round(r*r*Math.PI*1000)/1000
+		}	
+		else{
+		K = 2*r*Math.PI
+		T = r*r*Math.PI
+				
+		document.kor.K.value = Math.round(K*1000)/1000       // 3 számjegyre keretítünk
+		document.kor.T.value = Math.round(T*1000)/1000
+		}
+
+	}
+
+	if( m==2 )
+	{
+		r = K/2/Math.PI
+		T = r*r*Math.PI
+
+		document.kor.r.value = Math.round(r*1000)/1000
+		document.kor.T.value = Math.round(T*1000)/1000
+	}
+
+	if( m==3 )
+	{
+		r = Math.sqrt(T/Math.PI)
+		K = 2*r*Math.PI
+
+		document.kor.r.value = Math.round(r*1000)/1000
+		document.kor.K.value = Math.round(K*1000)/1000
+	}
+
+    }
+
+
+</script>
+
+
+
+<!-- -- -- --  JavaScript függvény vége  -- -- -- -- -->
+</body>
+</html>
+
+
+

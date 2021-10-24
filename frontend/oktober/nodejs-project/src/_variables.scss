@@ -1,0 +1,11 @@
+// Változók definiálása egy helyen, hogy átláthatóbban lehessen módosítani, finomhangolni
+$headerTextColor: white;
+$headerBackgroundColor: darkblue;
+
+$footerTextColor: $headerTextColor;
+$footerBackgroundColor: $headerBackgroundColor;
+
+$defaultFont: 'Roboto', sans-serif;
+
+$quoteTextColor: black;
+$quoteBackgroundColor: lightgreen;

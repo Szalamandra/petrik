@@ -1,0 +1,98 @@
+// SASS modulok imporálása. A moduloknak _ jellel kell kezdődniük.
+@use 'fonts';
+
+// A definiált változókat, függvényeket, mixin-eket stb. a "v" névtérbe importáljuk (l. lentebb)
+@use 'variables' as v;
+// Ezzel a módszerrel a globális névtérbe lehet importálni, "v" előtag nélkül.
+// @use 'variables' as *;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    // Importált változó használata
+    font-family: v.$defaultFont;
+}
+
+// Változó definiálása
+$header-height: 50px;
+
+header {
+    background-color: v.$headerBackgroundColor;
+
+    color: v.$headerTextColor;
+
+    // Egymásba ágyazás, a jelentése: "header ul"
+    ul {
+        // CSS grid is működhet
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: $header-height;
+        line-height: $header-height;
+        justify-content: flex-end;
+        align-items: center;
+
+        // Jelentése: "header ul li"
+        li {
+            width: 150px;
+            height: 100%;
+            list-style-type: none;
+            text-align: center;
+            line-height: $header-height;
+            // Ha nincs & - akkor a benne lévő elem
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                color: v.$headerTextColor;
+                text-decoration: none;
+
+                // & - az aktuális elem.
+                // A jelentése: "header ul li a:hover"
+                &:hover {
+                    background-color: adjust-color(v.$headerBackgroundColor, $lightness: 10%);
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: v.$footerBackgroundColor;
+
+    color: v.$footerTextColor;
+
+    a {
+        color: v.$footerTextColor;
+    }
+}
+
+main {
+    figure {
+        margin: 1em 50px;
+        blockquote {
+            position: relative;
+            padding: 10px;
+            background-color: v.$quoteBackgroundColor;
+            border-radius: 15px;
+            z-index: 2;
+
+            &::before {
+                content: "”";
+                position: absolute;
+                font-size: 5em;
+                top: 10px;
+                left: -10px;
+                // SASS függvény használata
+                // A kimeneti CSS-ba a kiszámított szín kerül
+                color: adjust-color(v.$quoteBackgroundColor, $lightness: -30%);
+                z-index: -1;
+            }
+        }
+        figcaption {
+            text-align: right;
+            font-style: italic;
+        }
+    }
+}
+

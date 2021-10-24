@@ -1,0 +1,17 @@
+.site {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-areas:
+		"header header"
+		"main main"
+		"footer footer";
+		grid-gap:0%;
+}
+.site-and-sidebar{display: grid;
+	grid-template-columns: auto ($size__site-sidebar);
+	grid-template-areas:
+		"header header"
+		"main main"
+		"footer footer";
+
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Másodfokú megoldó oldal</title>
+    <script>
+        function szamol() {
+            var a = document.getElementById('a').value*1.0;
+            var b = document.getElementById('b').value*1.0;
+            var c = document.getElementById('c').value*1.0;
+
+            var d = b*b - 4*a*c;
+            var megoldasHtml = "Nincs megoldás";
+            if (d > 0) {
+                var x1 = (-b + Math.sqrt(d))/(2*a);
+                var x2 = (-b - Math.sqrt(d))/(2*a);
+                megoldasHtml = "x1 = "+x1+"<br> x2 = "+x2;
+            } else if (d == 0) {
+                var x = (-b)/(2*a);
+                megoldasHtml = "x1 = x2 = "+x;
+            } 
+            document.getElementById('megoldas').innerHTML = megoldasHtml;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Átalakított bemenet</h1>
+        <p><input type="text" placeholder="a" id="a">x<sup>2</sup>+<input type="text" placeholder="b" id="b">x+<input type="text" placeholder="c" id="c">=0</p>
+        <button onclick="szamol();">Számol</button>
+    </div>
+    <div>
+        <h1>Eredmény</h1>
+        <p id="megoldas"></p>
+    </div>
+</body>
+</html>

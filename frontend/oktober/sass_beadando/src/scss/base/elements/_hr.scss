@@ -1,0 +1,47 @@
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+
+}
+
+hr#hrfrontPage{
+ height:0.2em;
+ width:50%;
+ color:$color_text-highlight;
+
+}
+
+.middleSalmon{
+	 height:0.2em;
+ width:30vw;
+ background-color:$color_text-highlight;
+    margin: 1.5em auto;
+}
+.middlePurple {
+  height: 0.2em;
+  width: 30vw;
+  background-color: $color__hamburger;
+  margin: 1.5em auto;
+}
+
+.middleGrey{
+	 height:0.2em;
+ width:30%;
+ color:$color__text-input;
+
+}
+.middleDarkGrey{
+	 height:0.2em;
+ width:30%;
+ color:$color__background-footer;
+
+}
+
+.middleWhite{
+	 height:0.2em;
+ width:30%;
+ color:$color__link;
+
+}

@@ -1,0 +1,27 @@
+.no-sidebar {
+	display: grid;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"header"
+			"main"
+			"footer";
+	
+}
+
+.absolute_layout{
+	@include absolute_layout();
+
+}
+
+.absolute_layout_medium{
+	@include absolute_layout(90vw,90vh,3%);
+
+}
+
+.fixed_layout{
+	@extend .absolute_layout;
+	position:fixed;
+
+}
+
+

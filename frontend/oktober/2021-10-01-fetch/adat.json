@@ -1,0 +1,6 @@
+[
+    { "nev": "user12", "id": 12, "active": true },
+    { "nev": "myuser1", "id": 1, "active": true },
+    { "nev": "felhasznalo", "id": 123, "active": false },
+    { "nev": "test42", "id": 20, "active": true }
+]

@@ -1,0 +1,14 @@
+@function font($font-name:$main) {
+  @return map-get($fontFamily, $font-name);
+}
+
+
+@function port_set_text_color(
+  $color_background, $color__text-main,$color__text-main_light
+) {
+  @if (lightness($color_background) >45){ 
+    @return $color__text-main;}
+  @else {
+    @return $color__text-main_light;}
+  
+}

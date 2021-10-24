@@ -1,0 +1,20 @@
+#masthead{
+    /*@include port-background-image($backgroundFrontImageUrl,$color__background-body-a);
+    width:100vw;
+    height:100vh;*/
+    background-color:$color__background-body-a;
+    position:absolute;
+    top:0;
+    display:inline-flex;
+    background-color: $color_transparent;
+    overflow:hidden;
+    z-index:10;
+    min-height:fit-content;
+    height:20vh;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    overflow: initial;
+    flex-wrap: nowrap;
+}
+

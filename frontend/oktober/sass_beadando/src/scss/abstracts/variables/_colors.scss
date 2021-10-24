@@ -1,0 +1,71 @@
+//backgrounds, bg of elements
+
+$color__background-body:rgb(236, 236, 236);
+$color__background-body-a:rgba(250, 250, 250,0.1);
+$color_transparent:rgba(0,0,0,0);
+$color__background-screen: rgb(241, 241, 241);
+$color__background-hr: #ccc;
+$color__background-button: rgb(163,168,164);
+$color__background-button-transparent: rgba(163,168,164,0.5);//rgb(243, 233, 207);
+$color__background-pre: #eee;
+$color__background-ins: #f57b17;
+$color__background-footer:#49494d;
+$color_menubackground:#49494d;
+$color__banner_bg:rgb(163,168,164);
+
+//gradient background:
+$color__banner_greyGradient_linear: linear-gradient(0deg, $color__background-body 10%, rgba(163,168,164,1) 50%, $color__background_body 90%);
+$color__banner_topToBottomDark:linear-gradient(0deg, rgba(219, 219, 219,1) 3%, rgba(192,192,192,1) 16%, rgba(73,73,77,1) 86%);
+$color__banner_topToBottomDarkAtlatszo:linear-gradient(0deg, rgba(219, 219, 219,0.9) 3%, rgba(192,192,192,0.9) 16%, rgba(73,73,77,0.9) 86%);
+$gradient_footer: linear-gradient(0deg, rgba(253,203,45,1) 0%, rgba(234,131,131,1) 41%, rgba(220,91,192,1) 70%, rgba(91,156,220,1) 79%, rgba(91,220,176,0.8905311392134979) 89%);
+$gradient_footer_reverz:linear-gradient(0deg, rgba(91,220,176,0.5964134921546744) 0%, rgba(91,156,220,0.5599989263283438) 41%, rgba(220,91,192,0.5908112512583159) 60%, rgba(234,131,131,0.5740045285692401) 72%, rgba(253,203,45,0.6) 89%);
+$gradien_projekt: radial-gradient(circle, rgba(227,227,205,1) 15%, rgba(224,224,203,1) 17%, rgba(166,168,163,1) 62%);
+
+//texts
+
+$color__text-main: #49494d;
+$color__text_about:aliceblue;
+$color_text-main_light:#e3e3cd;
+$color_text-highlight:#Df6747;
+$color__text-screen: #878d92;
+$color__text-input: #878d92;
+$color__text-input-focus: #111;
+$color__link: #eee; 
+$color__link-visited: rgb(246, 238, 238);
+$color__link-hover: #Df6747;
+$color__menu_active:salmon; 
+$color_text_highlight_light:salmon;
+
+
+//buttons,inputs
+
+$color__border-button: #ccc #ccc #bbb;
+$color__border-button-hover: #ccc #bbb #aaa;
+$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-input: #ccc;
+$color__border-abbr: #666;
+$color__hamburger:rgba(214, 157, 181,1);
+$color__hamburger-transparent:rgba(214, 157, 181,0.5);
+
+
+$color_fa-smile-wink:rgb(222, 127, 222);
+
+/*
+$color__border-button: #Df6747 #Df6747#Df6747;
+$color__border-button-hover: #ccc #bbb #aaa;
+$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-input: #Df6747;
+$color__border-abbr: #b42f32;
+*/
+
+//cards
+$color_bg_card:rgb(41, 40, 40);
+$color_bg_java:#784421;
+
+
+//tables
+$color_table_bg:rgba(255, 255, 255,0.6);
+
+//titles, h1,h2 stb
+$color__text_h1Light:rgb(231, 228, 228);
+$color__text_h1:rgb(33, 32, 32);

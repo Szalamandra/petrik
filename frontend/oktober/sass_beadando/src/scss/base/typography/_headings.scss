@@ -1,0 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	line-height: normal;
+}
+h1{
+    font: size $font_size_h1;
+}
+h2{
+    font-size:$font_size_h2;
+}
+h3{
+    font-size:$font_size_h3;
+}
+
+.aboutH2{
+	font-size: $font__size_h1_mod;
+	@include desktop{
+		font-size: 2.5rem;
+		white-space: pre-wrap;
+		text-align: center;
+
+	}
+}
