@@ -1,77 +1,25 @@
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Generic
-	- Normalize
-	- Box sizing
-# Base
-	- Typography (copy, headings, typography)
-	- Elements (body, buttons, fields-->for forms, hr, links, lists, media, tables)
-# Layouts
-
-# Components
-	- Navigation
-	- Ppages
-	- Comments
-	- Widgets
-	- Media
-	- Captions
-	- Galleries
 
 
 
---------------------------------------------------------------*/
+@use "abstracts/abstracts" as anim;
 
-// Import variables and mixins.
-@import "abstracts/abstracts";
 
-/*--------------------------------------------------------------
-# Animations
---------------------------------------------------------------*/
-@import "animations/animations";
-@import "animations/svgAnimations";
-@import "animations/jqueryAnimations";
-@import "animations/scroll";
+@use "animations/animations";
 
-/* Normalize
---------------------------------------------- */
-@import "generic/normalize";
 
 /* Box sizing
 --------------------------------------------- */
-@import "generic/box-sizing";
+@use "generic/box-sizing";
 
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
-@import "base/base";
+@use "base/base";
 
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-@import "layouts/content";
-@import "layouts/aboutDetailPage";
-@import "layouts/no-sidebar"; 
-/*change this one, if nothere is -sidebar*/
-@import "layouts/sidebar";
-//@import "layouts/header";
-@import "layouts/footer";
-
-
-/*--------------------------------------------------------------
-# Components
---------------------------------------------------------------*/
-@import "components/components";
-
-/*--------------------------------------------------------------
-# Utilities
---------------------------------------------------------------*/
-
-/* Accessibility
---------------------------------------------- */
-@import "utilities/accessibility";
-
-/* Alignments
---------------------------------------------- */
-@import "utilities/alignments";
+@use "layouts/content";
+@use "layouts/sidebar";
+@use "layouts/footer";

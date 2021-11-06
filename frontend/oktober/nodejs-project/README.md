@@ -83,10 +83,12 @@ A kezdeti fordítás után nem áll le, hanem figyeli fájlok módosításait, �
 ### SASS
 
 `npx sass --style=compressed src/main.scss dist/main.css`
-
+ (npx sass --style=compressed src/scss/style.scss dist/main.css)
 SCSS fájl lefordítása CSS fájllá.
 
 `npx sass --watch src/main.scss dist/main.css`
+(`npx sass --watch scss/style.scss dist/main.css`
+)
 
 Figyeli a fájlok módosításait, újrafordít ha kell.
 

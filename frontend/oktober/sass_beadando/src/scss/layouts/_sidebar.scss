@@ -1,17 +1,12 @@
 .site {
-	display: grid;
-	grid-template-columns: auto auto;
-	grid-template-areas:
-		"header header"
-		"main main"
-		"footer footer";
-		grid-gap:0%;
+  display: grid;
+  grid-template-columns: auto auto;
 }
-.site-and-sidebar{display: grid;
-	grid-template-columns: auto ($size__site-sidebar);
-	grid-template-areas:
-		"header header"
-		"main main"
-		"footer footer";
-
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.sidebar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }

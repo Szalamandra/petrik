@@ -1,28 +1,21 @@
+$font_size_h1:clamp(2rem, 5vw, 5rem);
+
+$font_size_h2:clamp(1.8rem, 4vw, 4rem);
+$font_size_h3:clamp(1.6rem, 3vw, 3rem);
+
+
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
 	clear: both;
 	line-height: normal;
 }
 h1{
-    font: size $font_size_h1;
+    font-size:$font_size_h1;
 }
 h2{
     font-size:$font_size_h2;
 }
 h3{
     font-size:$font_size_h3;
-}
-
-.aboutH2{
-	font-size: $font__size_h1_mod;
-	@include desktop{
-		font-size: 2.5rem;
-		white-space: pre-wrap;
-		text-align: center;
-
-	}
 }

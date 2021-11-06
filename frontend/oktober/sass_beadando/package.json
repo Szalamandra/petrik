@@ -1,0 +1,22 @@
+{
+  "name": "sass_beadando",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "mode":"development",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "sass": "^1.43.4",
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1"
+  }
+}
